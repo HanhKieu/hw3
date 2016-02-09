@@ -14,6 +14,6 @@ public class MyChar extends Element {
     }
 
     public void Print(){
-        System.out.print(myCharVar + " ");
+        System.out.print("'" + myCharVar + "'" + " ");
     }    
 }
