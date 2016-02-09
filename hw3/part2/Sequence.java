@@ -56,19 +56,31 @@ public class Sequence extends Element {
 
             Sequence newElement = new Sequence(elm);
             Sequence s = this;
+            Element temp;
             if(s.length() == 0 && pos == 0){
                 s.data = elm;
-            }
+            }//if there's nothing there
             else{
-                for(int i=0; s!=null; i++){
-                    if(i + 1 == pos){
-                        newElement.next = s.next;
-                        s.next = newElement;
-                        break;
-                    }// link our new sequence element to the beginni
-                s = s.next;
+                if(pos == 0){
+                    temp = s.data;
+                    s.data = elm;
+                    newElement.data = temp;
+                    newElement.next = s.next;
+                    s.next = newElement;
+                }
+                else{
+                    System.out.println("banana");
+                    for(int i=0; s!=null; i++){
+                        if(i + 1 == pos){
+                            newElement.next = s.next;
+                            s.next = newElement;
+                            break;
+                        }// link our new sequence element to the beginni
+                    s = s.next;
+                    }
                 }
             }
+
         }
 
     }// add element to sequence at a specific position
