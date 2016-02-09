@@ -5,6 +5,7 @@ public class Sequence extends Element {
 
 	public Sequence(){
     	next = null;
+        data = null;
     }// no argument in constructor
 
     public Sequence(Element val){
@@ -24,7 +25,7 @@ public class Sequence extends Element {
     		s.data.Print();
             s = s.next;
     	}
-    	System.out.print(" ]");
+    	System.out.print("]");
     }
 
     public Element first(){
@@ -38,7 +39,12 @@ public class Sequence extends Element {
     public int length(){
         Sequence s = this;
         int i;
-        for(i=0; s != null; i++, s = s.next);
+        if(s.data == null){
+            return 0;
+        }
+        for(i=0; s!= null; i++){
+            s = s.next;
+        }
         return i;
     }// returns length of sequence
 
@@ -50,14 +56,18 @@ public class Sequence extends Element {
 
             Sequence newElement = new Sequence(elm);
             Sequence s = this;
-
-            for(int i=0; s!=null; i++){
-                if(i + 1 == pos){
-                    newElement.next = s.next;
-                    s.next = newElement;
-                    break;
-                }// link our new sequence element to the beginni
-            s = s.next;
+            if(s.length() == 0 && pos == 0){
+                s.data = elm;
+            }
+            else{
+                for(int i=0; s!=null; i++){
+                    if(i + 1 == pos){
+                        newElement.next = s.next;
+                        s.next = newElement;
+                        break;
+                    }// link our new sequence element to the beginni
+                s = s.next;
+                }
             }
         }
 
