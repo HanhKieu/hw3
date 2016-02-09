@@ -7,7 +7,7 @@ public class Sequence extends Element {
     	next = null;
     }//no argument in constructor
 
-    public Sequence(Element val){
+    public Sequence(Element va2l){
     	next = null;
     	data = val;
     }//create a sequence with a data value
@@ -18,9 +18,14 @@ public class Sequence extends Element {
     }//create a sequence with a data value, and define what it points to next in the Sequence
 
     public void Print(){
-    	while(next!=null){
-    		print()
+    	Sequence s = this;
+    	System.out.print("[ ");
+    	while (s!=null) {
+    		s = s.next;
+    		data.Print();
     	}
+    	Systam.out.print(" ]");
+
     }
 
 }
