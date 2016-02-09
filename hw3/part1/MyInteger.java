@@ -12,6 +12,10 @@ public class MyInteger extends Element {
 
     public void Set(int val){
         myIntVar = val;
-    }	
+    }
+
+    public void Print(){
+    	System.out.print(myIntVar);
+    }    
 
 }

@@ -12,4 +12,8 @@ public class MyChar extends Element {
     public void Set(char val){
         myCharVar = val;
     }
+
+    public void Print(){
+        System.out.print(myCharVar);
+    }    
 }

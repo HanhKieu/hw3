@@ -17,11 +17,10 @@ public class Sequence extends Element {
     	data = val;
     }//create a sequence with a data value, and define what it points to next in the Sequence
 
-    // public Sequence Get(){
-    // 	return mySeqVar;
-    // }
+    public void Print(){
+    	while(next!=null){
+    		print()
+    	}
+    }
 
-    // public void Set(Sequence val){
-    // 	mySeqVar = val;
-    // }
 }
