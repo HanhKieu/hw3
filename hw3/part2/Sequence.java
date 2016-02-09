@@ -23,6 +23,7 @@ public class Sequence extends Element {
     	System.out.print("[ ");
     	while (s!=null) {
     		s.data.Print();
+            System.out.print(" ");
             s = s.next;
     	}
     	System.out.print("]");
@@ -67,9 +68,8 @@ public class Sequence extends Element {
                     newElement.data = temp;
                     newElement.next = s.next;
                     s.next = newElement;
-                }
+                }//if you're trying to add to the beginning
                 else{
-                    System.out.println("banana");
                     for(int i=0; s!=null; i++){
                         if(i + 1 == pos){
                             newElement.next = s.next;
@@ -89,7 +89,13 @@ public class Sequence extends Element {
     public void delete(int pos){
         Sequence s = this;
         Sequence temp;
-        if(pos >= 0 && pos <= (this.length() - 1)){
+
+        if(pos == 0){
+            s.data = s.next.data;
+            s.next = s.next.next;
+        }
+
+        else if(pos > 0 && pos <= (this.length() - 1)){
             for(int i=0; s!=null; i++){
                 if( i + 1 == pos){
                     s.next = s.next.next;

@@ -15,7 +15,7 @@ public class MyInteger extends Element {
     }
 
     public void Print(){
-    	System.out.print(myIntVar + " ");
+    	System.out.print(myIntVar);
     }    
 
 }
