@@ -21,8 +21,8 @@ public class Sequence extends Element {
     	Sequence s = this;
     	System.out.print("[ ");
     	while (s!=null) {
-    		s = s.next;
-    		data.Print();
+    		s.data.Print();
+            s = s.next;
     	}
     	System.out.print(" ]");
     }
@@ -61,7 +61,20 @@ public class Sequence extends Element {
             }
         }
 
-
     }// add element to sequence at a specific position
 
+
+    public void delete(int pos){
+        Sequence s = this;
+        Sequence temp;
+        if(pos >= 0 && pos <= (this.length() - 1)){
+            for(int i=0; s!=null; i++){
+                if( i + 1 == pos){
+                    s.next = s.next.next;
+                    break;
+                }
+                s = s.next;
+            }
+        }
+    }
 }
