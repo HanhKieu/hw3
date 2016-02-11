@@ -183,4 +183,26 @@ public class Sequence extends Element {
 
         return cpy;
     }
+
+    public SequenceIterator begin(){
+        SequenceIterator it = new SequenceIterator();
+        Sequence s = this;
+        it.s = s; //makes iterator's current seqobject , the head
+        return it;
+    }
+    public SequenceIterator end(){
+        SequenceIterator it = new SequenceIterator();
+        Sequence s = this;
+        MyChar dummy = new MyChar();
+        dummy.Set('d');
+        while(s.next!=null){  
+            s = s.next;
+        }
+
+        s.next = new Sequence(dummy); //makes last element dummy variable
+        s = s.next; //sets current seq object to dummty variable 
+
+        it.s = s; 
+        return it; //returns iterator object with s being the end variable
+    }
 }
