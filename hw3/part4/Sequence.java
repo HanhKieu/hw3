@@ -193,16 +193,10 @@ public class Sequence extends Element {
     public SequenceIterator end(){
         SequenceIterator it = new SequenceIterator();
         Sequence s = this;
-        MyChar dummy = new MyChar();
-        dummy.Set('d');
-        while(s.next!=null){  
+        while(s!=null){  
             s = s.next;
         }
-
-        s.next = new Sequence(dummy); //makes last element dummy variable
-        s = s.next; //sets current seq object to dummty variable 
-
-        it.s = s; 
+        it.s = s;
         return it; //returns iterator object with s being the end variable
     }
 }
