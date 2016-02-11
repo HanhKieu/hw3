@@ -122,53 +122,6 @@ public class Sequence extends Element {
         
         return s.data;
     }//returns data at pos 
-/*    
-    public Sequence flatten(){
-        Sequence s = this;
-
-        
-        while(s != null){
-            s.data.Print();
-            System.out.println();
-//            int index = 0;
-            System.out.println( s.length());           
-            if(s.first() instanceof Sequence){
-                System.out.println(((Sequence)s.data).length());
-                Sequence temp = ((Sequence)s.first()).flatten();
-                System.out.println();
-                temp.Print();
-                System.out.println();
-                
-                while(temp != null && temp.data != null){ //this combines the Sequences
-                    System.out.println(s.length());
-                    s.add(temp.data, 0);
-                    temp = temp.next;
-                    s = s.rest();
-                }
-                
-//                s.add(temp.data, index++);
-//                temp.next = s.rest(); //attach end to rest of Sequence
-//                index++;
-                System.out.println(s.length());
-            
-            
-                while(index > 0 && s != null){
-                    s = s.rest();
-                    index--;
-                }
-            }
-            
-            else if( s.next == null ){ //last value in sequence 
-                return this;
-            }
-            else //it was a char or int
-                s = s.rest();
-        }
-        
-        return this;
-    } //can't get this version to work
-      //trying to only make a shallow copy
-*/
 
     public Sequence flatten(){
         Sequence s = this;
@@ -186,32 +139,16 @@ public class Sequence extends Element {
                 }
 
             } //if its a Sequence
-            
-            else if(s.first() instanceof MyInteger){
-                MyInteger newInt = new MyInteger();
-                int val = ((MyInteger)s.first()).Get();
-                newInt.Set(val);
-                cpy.add(newInt, i++);
-
-            } //if its an int
-            
             else{
-               MyChar newChar = new MyChar();
-                char val = ((MyChar)s.first()).Get();
-                newChar.Set(val);
-                cpy.add(newChar, i++);
-
-            } //must be a char
-            
+                cpy.add(s.first(), i++);
+            }//if its a myInteger or MyCHar
 
             s = s.rest();
         }
 
         s = cpy;
-
         return s;
-    } //this version makes a deep copy
-      //it doesn't work if its' copy is altered
+    }
 
     
     public Sequence copy(){
