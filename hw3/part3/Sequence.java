@@ -183,4 +183,9 @@ public class Sequence extends Element {
 
         return cpy;
     }
+
+
+    public SequenceIterator begin(){
+
+    }
 }
