@@ -14,7 +14,7 @@ public class MapIterator {
 		return it;
 	}
 
-	public Element get(){
+	public Pair get(){
 		return s.data;
 	}
 

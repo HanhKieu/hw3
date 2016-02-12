@@ -61,6 +61,18 @@ public class Map extends Element {
     }// add element to Map where it belongs
 
 
+    public MapIterator find(MyChar key){
+		MapIterator it1 = new MapIterator();
+
+		for (it1 = this.begin(); !it1.equal(this.end()); it1.advance()) {
+			if(it1.get().key.Get() == key.Get()){
+				break;
+			}
+	  	}
+
+	  	return it1;
+    }
+
 
     public void Print(){
 	Map s = this;
