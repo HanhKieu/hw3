@@ -118,7 +118,7 @@ class Test5 {
 	System.out.println("m2 = ");
 	m2.Print();
 	dbl_line();
-
+	
 	System.out.print("m1 * m2 = ");
 	m1.Product(m2).Print();
 	
