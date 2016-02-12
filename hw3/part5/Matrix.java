@@ -59,7 +59,6 @@ class Matrix extends Sequence {
 	Matrix Product(Matrix mat){
 
 		Matrix prodMatrix = new Matrix(rowSize,mat.colSize);
-		int currentColumnOfSecondMatrix = 0;
 		int currentProduct = 0;
 		int currentSum = 0;
 
@@ -69,16 +68,18 @@ class Matrix extends Sequence {
 
 		else{
 			for(int i = 0; i < rowSize; i++){
-				for(int j = 0; j < colSize; j++){
-					currentProduct = this.Get(i,j) * mat.Get(j,currentColumnOfSecondMatrix);
-					currentSum = currentSum + currentProduct;
-				}
+				for(int k = 0; k < mat.colSize; k++){
+					currentSum = 0;
+					for(int j = 0; j < colSize; j++){
+						currentProduct = this.Get(i,j) * mat.Get(j,k);
+						currentSum = currentSum + currentProduct;
+					}
 
-				prodMatrix.Set(i, currentColumnOfSecondMatrix, currentSum);
-				currentColumnOfSecondMatrix++;
+				prodMatrix.Set(i, k, currentSum);
+				}
 			}
 		}
-		
+
 		return prodMatrix;
 	}
 
