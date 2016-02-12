@@ -1,0 +1,2 @@
+javac *.java
+Makefile:6: recipe for target 'e2c' failed
