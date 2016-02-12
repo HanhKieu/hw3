@@ -36,6 +36,10 @@ class Matrix extends Sequence {
 		
 	}
 
+	int Get(int rowPos, int colPos){
+		return ((MyInteger)((Sequence)myMatrix.index(rowPos)).index(colPos)).Get();
+	}
+
 
 	public void PrintMatrix(){
 		System.out.println("----------------");
