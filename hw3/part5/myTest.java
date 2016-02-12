@@ -13,10 +13,10 @@ class myTest {
   	mySecondMatrix.Set(0,0,6);
   	mySecondMatrix.Set(1,0,5);
   	mySecondMatrix.Set(2,0,4);
-  	myMatrix.PrintMatrix();
-  	mySecondMatrix.PrintMatrix();
+  	myMatrix.Print();
+  	mySecondMatrix.Print();
   	myMatrix = myMatrix.Product(mySecondMatrix);
-  	myMatrix.PrintMatrix();
+  	myMatrix.Print();
 	
 
 }

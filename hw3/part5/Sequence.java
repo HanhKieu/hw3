@@ -90,11 +90,13 @@ public class Sequence extends Element {
         Sequence s = this;
         Sequence temp;
 
-        if(pos == 0){
+        if(pos == 0 && this.length() != 1){
             s.data = s.next.data;
             s.next = s.next.next;
         }//deleting first element 
-
+        else if(pos == 0 && this.length() == 1){
+            s.data = null;
+        }
         else if(pos > 0 && pos <= (this.length() - 1)){
             for(int i=0; s!=null; i++){
                 if( i + 1 == pos){

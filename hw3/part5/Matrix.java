@@ -22,10 +22,11 @@ class Matrix extends Sequence {
 		MyInteger myValue = new MyInteger();
 		myValue.Set(value);
 
-		if((rowSize - 1) < rowPos || (colSize - 1) < colPos || rowPos < 0 || colSize < 0)
-			System.err.println("Matrix positions are out of bound");
-		else{
+		if((rowSize - 1) < rowPos || (colSize - 1) < colPos || rowPos < 0 || colSize < 0){
+			System.err.println("Positions out of bounds");
+		}
 
+		else{
 			((Sequence)myMatrix.index(rowPos)).delete(colPos);
 			((Sequence)myMatrix.index(rowPos)).add(myValue, colPos);
 		}
@@ -63,7 +64,8 @@ class Matrix extends Sequence {
 		int currentSum = 0;
 
 		if(colSize != mat.rowSize){
-			System.err.println("Column Size does not match row size");
+			System.err.println("Matrix dimensions incompatible for Product");
+			System.exit(1);
 		}
 
 		else{
@@ -84,13 +86,11 @@ class Matrix extends Sequence {
 	}
 
 
-	public void PrintMatrix(){
-		System.out.println("----------------");
+	public void Print(){
 		Element elm;
 		int i = 0;
 		SequenceIterator it1, it2;
 		for (it1 = myMatrix.begin(); !it1.equal(myMatrix.end()); it1.advance()) {
-			System.out.print(i + "");
 			elm = it1.get();
 			elm.Print();
 			System.out.println();
