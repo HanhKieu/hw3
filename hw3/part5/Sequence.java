@@ -90,7 +90,7 @@ public class Sequence extends Element {
         Sequence s = this;
         Sequence temp;
 
-        if(pos == 0 && this.length() != 1){
+        if(pos == 0 && this.length() > 1){
             s.data = s.next.data;
             s.next = s.next.next;
         }//deleting first element 
