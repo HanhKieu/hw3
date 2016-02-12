@@ -9,13 +9,13 @@ class myTest {
   	myMatrix.Set(0,0,0);
   	myMatrix.Set(0,1,1);
   	myMatrix.Set(0,2,2);
-  	Matrix mySecondMatrix = new Matrix(2,3);
+  	Matrix mySecondMatrix = new Matrix(3,2);
   	mySecondMatrix.Set(0,0,6);
-  	mySecondMatrix.Set(0,1,5);
-  	mySecondMatrix.Set(0,2,4);
+  	mySecondMatrix.Set(1,0,5);
+  	mySecondMatrix.Set(2,0,4);
   	myMatrix.PrintMatrix();
   	mySecondMatrix.PrintMatrix();
-  	myMatrix = myMatrix.Sum(mySecondMatrix);
+  	myMatrix = myMatrix.Product(mySecondMatrix);
   	myMatrix.PrintMatrix();
 	
 

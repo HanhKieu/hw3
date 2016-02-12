@@ -56,6 +56,32 @@ class Matrix extends Sequence {
 		return sumMatrix;
 	}
 
+	Matrix Product(Matrix mat){
+
+		Matrix prodMatrix = new Matrix(rowSize,mat.colSize);
+		int currentColumnOfSecondMatrix = 0;
+		int currentProduct = 0;
+		int currentSum = 0;
+
+		if(colSize != mat.rowSize){
+			System.err.println("Column Size does not match row size");
+		}
+
+		else{
+			for(int i = 0; i < rowSize; i++){
+				for(int j = 0; j < colSize; j++){
+					currentProduct = this.Get(i,j) * mat.Get(j,currentColumnOfSecondMatrix);
+					currentSum = currentSum + currentProduct;
+				}
+
+				prodMatrix.Set(i, currentColumnOfSecondMatrix, currentSum);
+				currentColumnOfSecondMatrix++;
+			}
+		}
+		
+		return prodMatrix;
+	}
+
 
 	public void PrintMatrix(){
 		System.out.println("----------------");
