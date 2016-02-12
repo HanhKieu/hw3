@@ -15,8 +15,6 @@ class Matrix extends Sequence {
 				newRow.add(zero, j);
 			}
 		}
-
-		PrintMatrix();
 	}
 
 
@@ -30,7 +28,6 @@ class Matrix extends Sequence {
 
 			((Sequence)myMatrix.index(rowPos)).delete(colPos);
 			((Sequence)myMatrix.index(rowPos)).add(myValue, colPos);
-			PrintMatrix();
 		}
 
 		
@@ -38,6 +35,25 @@ class Matrix extends Sequence {
 
 	int Get(int rowPos, int colPos){
 		return ((MyInteger)((Sequence)myMatrix.index(rowPos)).index(colPos)).Get();
+	}
+
+	Matrix Sum(Matrix mat){
+		int currentSum;
+		Matrix sumMatrix = new Matrix(rowSize,colSize);
+
+		if((rowSize != mat.rowSize)|| (colSize != mat.colSize) ){
+			System.err.println("Matrix Positions must be equal in order to add");
+		}
+		else{
+			for(int i = 0; i < rowSize; i++){
+				for(int j = 0; j < colSize; j++){
+					currentSum = this.Get(i, j) + mat.Get(i, j);
+					sumMatrix.Set(i, j, currentSum);
+				}
+			}
+		}
+
+		return sumMatrix;
 	}
 
 
